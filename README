@@ -1,0 +1,27 @@
+# Overloadable
+
+A quick and dirty proof of concept to see how easy it is to implement
+method overloading in Ruby based on duck typing.
+
+# Usage
+
+**NB: Usage is NOT advised in any capactiy.**
+
+    require 'function_overload'
+
+    class Foo
+      extend Overloadable
+
+      # will be called only with objects that respond_to?(:split)
+      def bar(baz_split)
+        baz_split.split('-')
+      end
+
+      # will be called only with objects that respond_to?(:reverse)
+      def bar(baz_reverse)
+        baz_reverse.reverse
+      end
+    end
+
+Can be used to create functions of different arities as well. See the
+specs for more examples.
